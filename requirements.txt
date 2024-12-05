@@ -3,5 +3,4 @@ pandas
 matplotlib
 streamlit
 seaborn
-sklearn.linearmodel
-sklearn.model_selection
+
