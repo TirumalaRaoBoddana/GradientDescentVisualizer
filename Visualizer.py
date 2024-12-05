@@ -325,14 +325,7 @@ if st.sidebar.button("Next Iteration"):
   visualize_slope(history,st.session_state.epochs)
   visualize_intercept(history,st.session_state.epochs)
   st.session_state.epochs+=1
-st.sidebar.write("For faster convergence increment iteration by 100")
-if st.sidebar.button("Increment 100"):
-  st.session_state.epochs+=100
-  visualize(st.session_state.epochs)
-  calculation()
-  visualize_slope(history,st.session_state.epochs)
-  visualize_intercept(history,st.session_state.epochs)
-  visualize_cost(x_train,y_train,history,st.session_state.epochs) 
+st.sidebar.write("For faster convergence increment iteration by 100") 
 st.subheader("Animation of gradient Descent")
 st.image("gradient_descent(slope known).gif",caption="convergence of intercept when slope is known")
 st.image("gradient_descent(intercept known).gif",caption="convergence of slope when intercept is known")
