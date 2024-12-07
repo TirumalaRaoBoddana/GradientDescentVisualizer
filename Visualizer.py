@@ -318,13 +318,14 @@ def visualize_intercept(history,epochs):
   plt.title('Convergence of Intercept') 
   plt.legend()
   return st.pyplot(plt)
-if st.sidebar.button("Next Iteration"):
+if st.sidebar.button("Next Iteration",disabled=st.session_state.button_disabled):
   visualize(st.session_state.epochs)  
   calculation()
   visualize_cost(x_train,y_train,history,st.session_state.epochs)
   visualize_slope(history,st.session_state.epochs)
   visualize_intercept(history,st.session_state.epochs)
   st.session_state.epochs+=1 
+  st.session_state.button_disabled = False
 st.subheader("Animation of gradient Descent")
 st.image("gradient_descent(slope known).gif",caption="convergence of intercept when slope is known")
 st.image("gradient_descent(intercept known).gif",caption="convergence of slope when intercept is known")
