@@ -312,7 +312,7 @@ def visualize_intercept(history,epochs):
   st.session_state.intercept_history.append(history[epochs][1])
   plt.figure(figsize=(8, 6))
   plt.plot(st.session_state.epoch_history,st.session_state.intercept_history,color="blue")
-  plt.scatter(st.session_state.epoch_history,st.session_state.intercept_history,color="red",label="slopes")
+  plt.scatter(st.session_state.epoch_history,st.session_state.intercept_history,color="red",label="Intercepts")
   plt.xlabel('Iteration')
   plt.ylabel('Intercept')
   plt.title('Convergence of Intercept') 
