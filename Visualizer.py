@@ -18,6 +18,8 @@ if 'slope_history' not in st.session_state:
   st.session_state.slope_history=[]
 if 'intercept_history' not in st.session_state:
   st.session_state.intercept_history=[]
+if 'button_disabled' not in st.session_state:
+    st.session_state.button_disabled = False
 st.subheader("Gradient Descent: ")
 st.markdown(
     """
@@ -319,6 +321,7 @@ def visualize_intercept(history,epochs):
   plt.legend()
   return st.pyplot(plt)
 if st.sidebar.button("Next Iteration",disabled=st.session_state.button_disabled):
+  st.session_state.button_disabled = True 
   visualize(st.session_state.epochs)  
   calculation()
   visualize_cost(x_train,y_train,history,st.session_state.epochs)
