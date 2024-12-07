@@ -16,8 +16,6 @@ if 'epoch_history' not in st.session_state:
   st.session_state.epoch_history=[]
 if 'slope_history' not in st.session_state:
   st.session_state.slope_history=[]
-if 'intercept_history' not in st.session_state:
-  st.session_state.intercept_history=[]
 st.subheader("Gradient Descent: ")
 st.markdown(
     """
@@ -308,22 +306,11 @@ def visualize_slope(history,epochs):
   plt.title('Convergence of Slope') 
   plt.legend()
   return st.pyplot(plt)
-def visualize_intercept(history,epochs):
-  st.session_state.intercept_history.append(history[epochs][1])
-  plt.figure(figsize=(8, 6))
-  plt.plot(st.session_state.epoch_history,st.session_state.intercept_history,color="blue")
-  plt.scatter(st.session_state.epoch_history,st.session_state.intercept_history,color="red",label="Intercepts")
-  plt.xlabel('Iteration')
-  plt.ylabel('Intercept')
-  plt.title('Convergence of Intercept') 
-  plt.legend()
-  return st.pyplot(plt)
 if st.sidebar.button("Next Iteration"):
   visualize(st.session_state.epochs)  
   calculation()
   visualize_cost(x_train,y_train,history,st.session_state.epochs)
   visualize_slope(history,st.session_state.epochs)
-  visualize_intercept(history,st.session_state.epochs)
   st.session_state.epochs+=1 
 st.subheader("Animation of gradient Descent")
 st.image("gradient_descent(slope known).gif",caption="convergence of intercept when slope is known")
